@@ -131,6 +131,41 @@ void Mat4x4::Scalar(const Vector3D& vec) {
 	this->m[3][3] = 1.0f;
 }
 
+void Mat4x4::RotateX(float rad) {
+	this->m = { 0.0f };
+	this->m[0][0] = 1.0f;
+	this->m[3][3] = 1.0f;
+
+	this->m[1][1] = std::cos(rad);
+	this->m[1][2] = std::sin(rad);
+	this->m[2][1] = -std::sin(rad);
+	this->m[2][2] = std::cos(rad);
+}
+
+void Mat4x4::RotateY(float rad) {
+	this->m = { 0.0f };
+	this->m[1][1] = 1.0f;
+	this->m[3][3] = 1.0f;
+
+	this->m[0][0] = std::cos(rad);
+	this->m[0][2] = -std::sin(rad);
+	this->m[2][0] = std::sin(rad);
+	this->m[2][2] = std::cos(rad);
+}
+
+void Mat4x4::RotateZ(float rad) {
+	this->m = { 0.0f };
+	this->m[2][2] = 1.0f;
+	this->m[3][3] = 1.0f;
+	
+	this->m[0][0] = std::cos(rad);
+	this->m[0][1] = std::sin(rad);
+	this->m[1][0] = -std::sin(rad);
+	this->m[1][1] = std::cos(rad);
+}
+
+
+
 void Mat4x4::Inverse() {
 #ifdef _DEBUG
 	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
@@ -267,4 +302,28 @@ Mat4x4 MakeMatrixScalar(Vector3D vec) {
 	mat.Scalar(vec);
 
 	return mat;
+}
+
+Mat4x4 MakeMatrixRotateX(float rad) {
+	Mat4x4 tmp;
+
+	tmp.RotateX(rad);
+
+	return tmp;
+}
+
+Mat4x4 MakeMatrixRotateY(float rad) {
+	Mat4x4 tmp;
+
+	tmp.RotateY(rad);
+
+	return tmp;
+}
+
+Mat4x4 MakeMatrixRotateZ(float rad) {
+	Mat4x4 tmp;
+
+	tmp.RotateZ(rad);
+
+	return tmp;
 }

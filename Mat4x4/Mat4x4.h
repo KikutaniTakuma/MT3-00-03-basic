@@ -76,6 +76,24 @@ public:
 	void Scalar(const Vector3D& vec);
 
 	/// <summary>
+	/// x軸回転
+	/// </summary>
+	/// <param name="rad">ラジアン</param>
+	void RotateX(float rad);
+
+	/// <summary>
+	/// y軸回転
+	/// </summary>
+	/// <param name="rad">ラジアン</param>
+	void RotateY(float rad);
+
+	/// <summary>
+	/// z軸回転
+	/// </summary>
+	/// <param name="rad">ラジアン</param>
+	void RotateZ(float rad);
+
+	/// <summary>
 	/// 逆行列化
 	/// </summary>
 	void Inverse();
@@ -109,6 +127,28 @@ Mat4x4 MakeMatrixTranslate(Vector3D vec);
 /// <param name="vec">大きさベクトル</param>
 /// <returns>スカラー倍行列を返す</returns>
 Mat4x4 MakeMatrixScalar(Vector3D vec);
+
+/// <summary>
+/// x軸回転
+/// </summary>
+/// <param name="rad">ラジアン</param>
+/// <returns>x軸回転した行列</returns>
+Mat4x4 MakeMatrixRotateX(float rad);
+
+/// <summary>
+/// y軸回転
+/// </summary>
+/// <param name="rad">ラジアン</param>
+/// <returns>y軸回転した行列</returns>
+Mat4x4 MakeMatrixRotateY(float rad);
+
+/// <summary>
+/// z軸回転
+/// </summary>
+/// <param name="rad">ラジアン</param>
+/// <returns>z軸回転した行列</returns>
+Mat4x4 MakeMatrixRotateZ(float rad);
+
 
 /// <summary>
 /// 逆行列
